@@ -361,7 +361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7128214564383444127}
-  - component: {fileID: 3059576283258415131}
   m_Layer: 0
   m_Name: TestTank
   m_TagString: Untagged
@@ -389,20 +388,6 @@ Transform:
   - {fileID: 3011767628924843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3059576283258415131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4650025663864158661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e99354e231868164181d9a41cdec80e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  turnSpeed: 100
 --- !u!1 &5212221470063143236
 GameObject:
   m_ObjectHideFlags: 0
