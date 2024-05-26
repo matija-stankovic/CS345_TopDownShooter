@@ -8,11 +8,13 @@ public class TankMovement : MonoBehaviour
     public float speed = 5;
     public float turnSpeed = 5;
     private Rigidbody2D rb;
+    private TankWeapon tankWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         //rb = GetComponent<Rigidbody2D>();
+        tankWeapon = GetComponent<TankWeapon>();
     }
 
     // Update is called once per frame
