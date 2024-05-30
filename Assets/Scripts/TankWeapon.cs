@@ -15,6 +15,7 @@ public class TankWeapon : MonoBehaviour
         public float fireRate;
         public int damage;
         public float bulletSpread;  // Relevant for Shotgun
+        public float bulletSpeed;
     }
 
     public WeaponType currentWeapon;
@@ -60,20 +61,20 @@ public class TankWeapon : MonoBehaviour
             for (int i = -1; i <= 1; i++)
             {
                 Vector3 spreadDirection = Quaternion.Euler(0, 0, settings.bulletSpread * i) * bulletSpawnPoint.up;
-                InstantiateBullet(spreadDirection, settings.damage);
+                InstantiateBullet(spreadDirection, settings.damage, settings.bulletSpeed);
             }
         }
         else
         {
             // Fire a single bullet
-            InstantiateBullet(bulletSpawnPoint.up, settings.damage);
+            InstantiateBullet(bulletSpawnPoint.up, settings.damage, settings.bulletSpeed);
         }
     }
 
-    void InstantiateBullet(Vector3 direction, int damage)
+    void InstantiateBullet(Vector3 direction, int damage, float speed)
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Initialize(direction, damage, GetCurrentSettings().fireRate);
+        bullet.GetComponent<Bullet>().Initialize(direction, damage, speed);
     }
 
     public void SwitchWeapon(WeaponType newWeapon)
