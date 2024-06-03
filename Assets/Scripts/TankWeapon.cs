@@ -18,7 +18,7 @@ public class TankWeapon : MonoBehaviour
         public float bulletSpeed;
     }
 
-    public WeaponType currentWeapon;
+    public WeaponType currentWeapon = WeaponType.MachineGun;
     public WeaponSettings machineGunSettings;
     public WeaponSettings sniperSettings;
     public WeaponSettings shotgunSettings;
@@ -29,6 +29,7 @@ public class TankWeapon : MonoBehaviour
 
     void Update()
     {
+        HandleWeaponSwitch();
         if (Input.GetMouseButton(0) && Time.time > lastFireTime + GetCurrentSettings().fireRate)
         {
             Fire();
@@ -81,5 +82,21 @@ public class TankWeapon : MonoBehaviour
     {
         currentWeapon = newWeapon;
         lastFireTime = 0;
+    }
+
+    void HandleWeaponSwitch()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SwitchWeapon(WeaponType.MachineGun);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchWeapon(WeaponType.Sniper);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SwitchWeapon(WeaponType.Shotgun);
+        }
     }
 }
