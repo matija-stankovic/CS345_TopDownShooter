@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TurretControl : MonoBehaviour
 {
-    [SerializeField] Transform turretFollow;
+    [SerializeField] 
+    public Transform turretFollow;
     //public Camera mainCamera;
     // Start is called before the first frame update
     void Start()

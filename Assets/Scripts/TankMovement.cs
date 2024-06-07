@@ -49,15 +49,15 @@ public class TankMovement : MonoBehaviour
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0)); //+= new Vector3(speed * Time.deltaTime, 0, 0);
         }
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0)); //-= new Vector3(speed * Time.deltaTime, 0, 0);
         }
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(new Vector3(0, 0, turnSpeed * Time.deltaTime));
         }
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(new Vector3(0, 0, -turnSpeed * Time.deltaTime));
         }

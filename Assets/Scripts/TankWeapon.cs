@@ -51,7 +51,7 @@ public class TankWeapon : MonoBehaviour
         }
     }
 
-    void Fire()
+    public void Fire()
     {
         WeaponSettings settings = GetCurrentSettings();
         lastFireTime = Time.time;
@@ -72,7 +72,7 @@ public class TankWeapon : MonoBehaviour
         }
     }
 
-    void InstantiateBullet(Vector3 direction, int damage, float speed)
+    public void InstantiateBullet(Vector3 direction, int damage, float speed)
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
         bullet.GetComponent<Bullet>().Initialize(direction, damage, speed);
