@@ -5,7 +5,6 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float lifeTime;
     [SerializeField] private int damage; 
-    private string targetTag = "Enemy"; 
     public Rigidbody2D rb;
     protected float speed;
     
@@ -31,11 +30,19 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == targetTag)
+        if (other.tag == "Enemy")
         {
             if (other.gameObject.GetComponent<Enemy>() != null)
             {
                 other.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            }
+            Destroy(gameObject);
+        }
+        else if (other.tag == "Player")
+        {
+            if (other.gameObject.GetComponent<Player>() != null)
+            {
+                other.gameObject.GetComponent<Player>().TakeDamage(damage);
             }
             Destroy(gameObject);
         }
