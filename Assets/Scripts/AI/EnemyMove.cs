@@ -7,10 +7,8 @@ using UnityEngine.Events;
 public class EnemyMove : MonoBehaviour
 {
     public Rigidbody2D rb2d;
-
-    private Vector2 movementVector;
-    private float currentSpeed = 0;
-    private float currentForewardDirection = 1;
+    public float movementSpeed = 2f;
+    public float rotationSpeed = 200f;
 
     public UnityEvent<float> OnSpeedChange = new UnityEvent<float>();
 
@@ -19,42 +17,28 @@ public class EnemyMove : MonoBehaviour
         rb2d = GetComponentInParent<Rigidbody2D>();
     }
 
-    public void Move(Vector2 movementVector)
+   public void Move(Vector2 movementVector)
     {
-        this.movementVector = movementVector;
-        CalculateSpeed(movementVector);
-        OnSpeedChange?.Invoke(this.movementVector.magnitude);
-        if (movementVector.y > 0)
-        {
-            if (currentForewardDirection == -1)
-                currentSpeed = 0;
-            currentForewardDirection = 1;
-        }  
-        else if (movementVector.y < 0)
-        {
-            if (currentForewardDirection == 1)
-                currentSpeed = 0;
-            currentForewardDirection = -1;
-        }
-            
+        // Debug logging
+        Debug.Log($"Movement vector: {movementVector}");
+
+        // Calculate rotation angle with an additional 90 degrees rotation
+        float targetAngle = Mathf.Atan2(movementVector.y, movementVector.x) * Mathf.Rad2Deg;
+        targetAngle -= 90; // Apply extra 90 degrees rotation
+        if (targetAngle < 0) targetAngle += 360; // Ensure angle is within [0, 360] range
+
+        // Debug logging
+        Debug.Log($"Target angle: {targetAngle}");
+
+        // Smoothly rotate towards the target angle
+        float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, rotationSpeed * Time.deltaTime);
+
+        // Apply rotation
+        transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Apply movement
+        Vector3 movement = new Vector3(movementVector.x, movementVector.y, 0) * movementSpeed * Time.deltaTime;
+        transform.position += movement;
     }
 
-    private void CalculateSpeed(Vector2 movementVector)
-    {
-        if (Mathf.Abs(movementVector.y) > 0)
-        {
-            currentSpeed += 70 * Time.deltaTime;
-        }
-        else
-        {
-            currentSpeed -= 50 * Time.deltaTime;
-        }
-        currentSpeed = Mathf.Clamp(currentSpeed, 0, 10);
-    }
-
-    private void FixedUpdate()
-    {
-        rb2d.velocity = (Vector2)transform.up * currentSpeed * currentForewardDirection * Time.fixedDeltaTime;
-        rb2d.MoveRotation(transform.rotation * Quaternion.Euler(0, 0, -movementVector.x * 100 * Time.fixedDeltaTime));
-    }
 }

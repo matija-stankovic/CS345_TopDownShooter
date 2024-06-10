@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AIDetector : MonoBehaviour
@@ -18,6 +17,7 @@ public class AIDetector : MonoBehaviour
 
     [field: SerializeField]
     public bool TargetVisible { get; private set; }
+
     public Transform Target
     {
         get => target;
@@ -41,7 +41,8 @@ public class AIDetector : MonoBehaviour
 
     private bool CheckTargetVisible()
     {
-        var result = Physics2D.Raycast(transform.position, Target.position - transform.position, viewRadius, visibilityLayer);
+        var directionToTarget = (Vector2)(Target.position - transform.position);
+        var result = Physics2D.Raycast(transform.position, directionToTarget, viewRadius, visibilityLayer);
         if (result.collider != null)
         {
             return (playerLayerMask & (1 << result.collider.gameObject.layer)) != 0;
@@ -53,13 +54,13 @@ public class AIDetector : MonoBehaviour
     {
         if (Target == null)
             CheckIfPlayerInRange();
-        else if (Target != null)
+        else
             DetectIfOutOfRange();
     }
 
     private void DetectIfOutOfRange()
     {
-        if (Target == null || Target.gameObject.activeSelf == false || Vector2.Distance(transform.position, Target.position) > viewRadius + 1)
+        if (Target == null || !Target.gameObject.activeSelf || Vector2.Distance(transform.position, Target.position) > viewRadius + 1)
         {
             Target = null;
         }
@@ -74,12 +75,13 @@ public class AIDetector : MonoBehaviour
         }
     }
 
-    IEnumerator DetectionCoroutine()
+    private IEnumerator DetectionCoroutine()
     {
-        yield return new WaitForSeconds(detectionCheckDelay);
-        DetectTarget();
-        StartCoroutine(DetectionCoroutine());
-
+        while (true)
+        {
+            DetectTarget();
+            yield return new WaitForSeconds(detectionCheckDelay);
+        }
     }
 
     private void OnDrawGizmos()

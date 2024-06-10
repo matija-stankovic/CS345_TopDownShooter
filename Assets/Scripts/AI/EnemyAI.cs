@@ -18,7 +18,6 @@ public class EnemyAI : MonoBehaviour
         tank = GetComponentInChildren<EnemyTank>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(detector.TargetVisible) {

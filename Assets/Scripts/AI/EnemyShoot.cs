@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShoot : CustomBehaviour
 {
-    public float vision = 60;
+    public float vision = 300;
 
     public override void Action(EnemyTank tank, AIDetector detector)
     {
         if (targetVisible(tank, detector))
         {
-            tank.HandleMoveBody(Vector2.zero);
+            //tank.MoveEnemy(detector.Target.position);
             tank.HandleShoot();
         }
             
