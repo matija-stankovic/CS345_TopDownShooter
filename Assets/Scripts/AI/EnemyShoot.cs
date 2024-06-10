@@ -16,6 +16,7 @@ public class EnemyShoot : CustomBehaviour
             
         tank.HandleTurretMovement(detector.Target.position);
     }
+
     private bool targetVisible(EnemyTank tank, AIDetector detector)
     {
         var direction = detector.Target.position - tank.aimTurret.transform.position;

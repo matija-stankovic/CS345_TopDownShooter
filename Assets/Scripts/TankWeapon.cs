@@ -30,7 +30,7 @@ public class TankWeapon : MonoBehaviour
     void Update()
     {
         HandleWeaponSwitch();
-        if (Input.GetMouseButton(0) && Time.time > lastFireTime + GetCurrentSettings().fireRate)
+        if (Input.GetMouseButton(0) && Time.time > lastFireTime + GetCurrentSettings().fireRate && gameObject.tag == "Player")
         {
             Fire();
         }
@@ -99,4 +99,17 @@ public class TankWeapon : MonoBehaviour
             SwitchWeapon(WeaponType.Shotgun);
         }
     }
+
+    public float getFireRate()
+    {
+        WeaponSettings settings = GetCurrentSettings();
+        return settings.fireRate;
+    }
+
+    public float getLastFireTime()
+    {
+        return lastFireTime;
+    }
 }
+
+

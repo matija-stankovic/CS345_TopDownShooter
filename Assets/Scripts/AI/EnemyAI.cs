@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+
+    private float lastFireTime;
+
     [SerializeField]
     private CustomBehaviour shoot, patrol;
     
@@ -21,8 +24,11 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(detector.TargetVisible) {
-            shoot.Action(tank, detector);
+        if (detector.TargetVisible) {
+            if (Time.time > tank.weapon.getLastFireTime() + 0.3)
+            {
+                shoot.Action(tank, detector);
+            }         
         }
         else {
             patrol.Action(tank, detector);
