@@ -86,15 +86,15 @@ public class TankWeapon : MonoBehaviour
 
     void HandleWeaponSwitch()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && gameObject.tag == "Player")
         {
             SwitchWeapon(WeaponType.MachineGun);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && gameObject.tag == "Player")
         {
             SwitchWeapon(WeaponType.Sniper);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && gameObject.tag == "Player")
         {
             SwitchWeapon(WeaponType.Shotgun);
         }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3369174313910086036}
+  - component: {fileID: 3019761511829469614}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -32,6 +33,22 @@ Transform:
   - {fileID: 774857781476838078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3019761511829469614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7141991734801522204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a3b743d37a14441978df23a0ecd7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: {fileID: 2985250101215529308}
+  patrol: {fileID: 4105384290950157423}
+  tank: {fileID: 8802068161358587804}
+  detector: {fileID: 3656454174432892125}
 --- !u!1 &7589096770987476622
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,9 +282,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4650025663864158661, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4237291202495214474}
-    - targetCorrespondingSourceObject: {fileID: 4650025663864158661, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5020217126427544270}
     - targetCorrespondingSourceObject: {fileID: 2438808498340313865, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       insertIndex: -1
       addedObject: {fileID: 80153817524527602}
@@ -456,22 +470,6 @@ MonoBehaviour:
   OnSpeedChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5020217126427544270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2928586438412484580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a3b743d37a14441978df23a0ecd7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot: {fileID: 2985250101215529308}
-  patrol: {fileID: 4105384290950157423}
-  tank: {fileID: 8802068161358587804}
-  detector: {fileID: 3656454174432892125}
 --- !u!1 &5328949152993754408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2438808498340313865, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
@@ -490,6 +488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretRotationSpeed: 150
+  target: {fileID: 0}
+  turretFollow: {fileID: 7504944501704851850}
 --- !u!4 &7504944501704851850 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3011767628924843, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}

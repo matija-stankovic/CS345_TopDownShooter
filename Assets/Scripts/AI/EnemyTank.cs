@@ -34,4 +34,9 @@ public class EnemyTank : MonoBehaviour
         aimTurret.Aim(pointerPosition);
         
     }
+
+    public void HandleTurretTracking()
+    {
+        aimTurret.Tracking();
+    }
 }

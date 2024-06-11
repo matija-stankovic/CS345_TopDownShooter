@@ -10,20 +10,26 @@ public class EnemyShoot : CustomBehaviour
     {
         if (targetVisible(tank, detector))
         {
+            Debug.Log("visible");
             tank.HandleMoveBody(Vector2.zero);
             tank.HandleShoot();
         }
-            
-        tank.HandleTurretMovement(detector.Target.position);
+
+        //tank.HandleTurretMovement(detector.Target.position);
+        tank.HandleTurretTracking();
     }
 
     private bool targetVisible(EnemyTank tank, AIDetector detector)
     {
-        var direction = detector.Target.position - tank.aimTurret.transform.position;
-        if (Vector2.Angle(tank.aimTurret.transform.right, direction) < vision / 2)
+        /*
+        //var direction = detector.Target.position - tank.aimTurret.transform.position;
+        var direction = tank.aimTurret.transform.position;
+        if (Vector2.Angle(tank.aimTurret.transform.right, direction) < vision / 2) // < vision / 2
         {
             return true;
         }
         return false;
+        */
+        return detector.TargetVisible;
     }
 }

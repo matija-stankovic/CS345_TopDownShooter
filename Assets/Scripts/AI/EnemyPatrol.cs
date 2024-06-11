@@ -25,6 +25,7 @@ public class EnemyPatrol : CustomBehaviour
                 tempPatrolDelay -= Time.deltaTime;
             else
                 tank.HandleTurretMovement((Vector2)tank.aimTurret.transform.position + direction);
+                //tank.HandleTurretTracking();
         }
 
     }
