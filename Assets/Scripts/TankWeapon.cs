@@ -27,6 +27,14 @@ public class TankWeapon : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
+    public GameObject machineGunSprite;
+    public GameObject sniperSprite;
+    public GameObject shotgunSprite;
+
+    public GameObject machineGunFOV;
+    public GameObject sniperFOV;
+    public GameObject shotgunFOV;
+
     void Update()
     {
         HandleWeaponSwitch();
@@ -82,6 +90,8 @@ public class TankWeapon : MonoBehaviour
     {
         currentWeapon = newWeapon;
         lastFireTime = 0;
+        UpdateWeaponSprite();
+        UpdateWeaponFOV();
     }
 
     void HandleWeaponSwitch()
@@ -98,6 +108,20 @@ public class TankWeapon : MonoBehaviour
         {
             SwitchWeapon(WeaponType.Shotgun);
         }
+    }
+
+    void UpdateWeaponSprite()
+    {
+        if (machineGunSprite != null) machineGunSprite.SetActive(currentWeapon == WeaponType.MachineGun);
+        if (sniperSprite != null) sniperSprite.SetActive(currentWeapon == WeaponType.Sniper);
+        if (shotgunSprite != null) shotgunSprite.SetActive(currentWeapon == WeaponType.Shotgun);
+    }
+
+    void UpdateWeaponFOV()
+    {
+        if (machineGunFOV != null) machineGunFOV.SetActive(currentWeapon == WeaponType.MachineGun);
+        if (sniperFOV != null) sniperFOV.SetActive(currentWeapon == WeaponType.Sniper);
+        if (shotgunFOV != null) shotgunFOV.SetActive(currentWeapon == WeaponType.Shotgun);
     }
 
     public float getFireRate()

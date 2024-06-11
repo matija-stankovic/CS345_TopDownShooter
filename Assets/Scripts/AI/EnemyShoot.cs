@@ -10,7 +10,6 @@ public class EnemyShoot : CustomBehaviour
     {
         if (targetVisible(tank, detector))
         {
-            Debug.Log("visible");
             tank.HandleMoveBody(Vector2.zero);
             tank.HandleShoot();
         }

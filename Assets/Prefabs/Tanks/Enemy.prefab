@@ -148,11 +148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1889244006781445729, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2673298045846366337, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2957456025424660430, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_Sprite
@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 175673e2c2e70c74a901e9ad4cab8a44, type: 3}
     - target: {fileID: 2957456025424660430, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4650025663864158661, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_Name
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 3174d3bca3b62c24896dabb9812253bb, type: 3}
     - target: {fileID: 4951077065946826331, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5019747534497941491, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_Color.b
@@ -194,9 +194,13 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5019747534497941491, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5968410691942128346, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7128214564383444127, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_LocalPosition.x
@@ -244,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8455919099748414332, guid: ed57fd9cbfb06f845ba4a89b23d9c490, type: 3}
       propertyPath: m_MaskInteraction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -381,6 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
 --- !u!114 &4490086412849654684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,15 +395,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2928586438412484580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf88ffc7fd8cb234ca234aaaef51a6ab, type: 3}
+  m_Script: {fileID: 11500000, guid: f6f18d69cbe96fa46acda509d2609ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: 0
   machineGunSettings:
     fireRate: 0.3
-    damage: 2
+    damage: 5
     bulletSpread: 0
-    bulletSpeed: 4
+    bulletSpeed: 5
   sniperSettings:
     fireRate: 0
     damage: 0
@@ -411,6 +416,12 @@ MonoBehaviour:
     bulletSpeed: 0
   bulletPrefab: {fileID: 9177857155510879956, guid: dcf11c6776891304e8a5986d4f4db595, type: 3}
   bulletSpawnPoint: {fileID: 2293993286588787652}
+  machineGunSprite: {fileID: 0}
+  sniperSprite: {fileID: 0}
+  shotgunSprite: {fileID: 0}
+  machineGunFOV: {fileID: 0}
+  sniperFOV: {fileID: 0}
+  shotgunFOV: {fileID: 0}
 --- !u!114 &4105384290950157423
 MonoBehaviour:
   m_ObjectHideFlags: 0

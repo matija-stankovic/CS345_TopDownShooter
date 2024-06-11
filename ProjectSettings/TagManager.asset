@@ -8,6 +8,9 @@ TagManager:
   - Wall
   - Decoration
   - Bullet
+  - Goal
+  - Goal1
+  - Goal2
   layers:
   - Default
   - TransparentFX
