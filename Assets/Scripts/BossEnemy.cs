@@ -5,7 +5,6 @@ public class BossEnemy : Enemy
 {
     public TankWeapon enemyWeapon;
     private float weaponCycleTime = 5.0f;
-    private int currentHealth;
 
     private void Start()
     {
@@ -25,17 +24,17 @@ public class BossEnemy : Enemy
 
     private void SwitchWeapon()
     {
-        if (enemyWeapon.currentWeapon == EnemyWeapon.WeaponType.MachineGun)
+        if (enemyWeapon.currentWeapon == TankWeapon.WeaponType.MachineGun)
         {
-            enemyWeapon.SwitchWeapon(EnemyWeapon.WeaponType.Sniper);
+            enemyWeapon.SwitchWeapon(TankWeapon.WeaponType.Sniper);
         }
-        else if (enemyWeapon.currentWeapon == EnemyWeapon.WeaponType.Sniper)
+        else if (enemyWeapon.currentWeapon == TankWeapon.WeaponType.Sniper)
         {
-            enemyWeapon.SwitchWeapon(EnemyWeapon.WeaponType.Shotgun);
+            enemyWeapon.SwitchWeapon(TankWeapon.WeaponType.Shotgun);
         }
         else
         {
-            enemyWeapon.SwitchWeapon(EnemyWeapon.WeaponType.MachineGun);
+            enemyWeapon.SwitchWeapon(TankWeapon.WeaponType.MachineGun);
         }
     }
 }

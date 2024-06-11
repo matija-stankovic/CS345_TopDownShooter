@@ -52,5 +52,9 @@ public class Bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if (collision.gameObject.layer == 9)
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+        }
     }
 }
